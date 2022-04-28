@@ -38,6 +38,7 @@ function readSingleFile(evt,x) {
 					w++;
 					continue;
 				}
+				if (!runtime) {continue;}
 				
 				runtime = runtime.split(":");
 				time_ms = runtime[runtime.length-1].split(".")[1];
