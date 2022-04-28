@@ -34,7 +34,10 @@ function readSingleFile(evt,x) {
 					}
 				}
 				console.log(competitor_lane, runtime);
-				if (!runtime) {w++; continue;}
+				if (document.getElementById("LanesNotUsed").value.indexOf(competitor_lane)!=-1) {
+					w++;
+					continue;
+				}
 				
 				runtime = runtime.split(":");
 				time_ms = runtime[runtime.length-1].split(".")[1];
@@ -63,8 +66,7 @@ function readSingleFile(evt,x) {
 					{code: "document.getElementsByTagName('input')["+(4*w+3)+"].value =" + time_ms}
 					);
 				
-				
-				w++;
+				w++;	
 			}	
 		}
 		r.readAsText(f);
